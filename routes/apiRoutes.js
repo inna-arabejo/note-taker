@@ -2,6 +2,8 @@ const fs = require('fs');
 const uuid = require('uuid');
 const router = require('express').Router();
 
+
+
 // GET Route     // api/notes
 router.get('/notes', (req, res) => {
   fs.readFileAsync('./db/db.json', 'utf8').then(function(data) {
