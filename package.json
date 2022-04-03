@@ -4,12 +4,18 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "Express",
+    "start": "node server"
   },
-  "author": "",
+  "author": "inna-arabejo",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "fs": "^0.0.1-security",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "util": "^0.12.4",
+    "util.promisify": "^1.1.1",
+    "uuid": "^8.3.2"
   }
 }
