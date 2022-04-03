@@ -1,14 +1,17 @@
 const express = require('express');
 const htmlRoutes = require('./routes/htmlRoutes');
-const apiRoutes = require('./routes/apiRoutes');
-const router = express();
+const api = require('./routes/apiRoutes');
+const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware for parsing JSON and urlencoded form data
-router.use(express.urlencoded({ extended: true }));
-router.use(express.static('public'));
-router.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(express.json());
 
-router.use('/api', apiRoutes);
-router.use('/', htmlRoutes);
+app.use('/api', api);
+app.use('/', htmlRoutes);
 
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
