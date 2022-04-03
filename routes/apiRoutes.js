@@ -18,3 +18,13 @@ router.post('/notes', (req, res) => {
   res.json(notes);
 })
 
+// DELETE Route
+router.delete('/notes/:id', (req, res) => {
+  const notes = JSON.parse(fs.readFileSync('./db/db.json'));
+  const deleteNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
+  fs.writeFileSync('./db/db.json', JSON.stringify(deleteNote));
+
+  res.json(deleteNote);
+})
+
+module.exports = router;
