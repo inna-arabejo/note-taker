@@ -1,46 +1,36 @@
-const fs = require('fs');
-const uuid = require('uuid');
+const store = require('../db/store');
 const router = require('express').Router();
 
 
 
 // GET Route     // api/notes
 router.get('/notes', (req, res) => {
-  fs.readFileAsync('./db/db.json', 'utf8').then(function(data) {
-    notes = [].concat(JSON.parse(data))
-    res.json(notes);
+  store
+  .getNotes()
+  .then((notes) => {
+    return res.json(notes);
+  })
+  .catch((err) => res.status(500).json(err));
   });
-})
+
 
 // POST Route 
 router.post('/notes', (req, res) => {
-  const note = req.body;
-  readFileAsync('./db/db.json', 'utf8').then(function(data) {
-    const notes = [].concat(JSON.parse(data));
-    note.id = notes.length + 1
-    notes.push(note);
-  }).then(function(data) {
-    fs.writeFileSync('./db/db.json', JSON.stringify(notes));
-    res.json(notes);
-  })
-});
+  store
+  .addNote(req.body)
+  .then((note) => res.json(note))
+
+  .catch((err) => res.status(500).json(err));
+  });
 
 // DELETE Route
 router.delete('/notes/:id', (req, res) => {
-  const deleteID = parseInt(req.params.id);
-  readFileAsync('./db/db.json', 'utf8').then(function(data) {
-    const notes = [].concat(JSON.parse(data));
-    const newNotes = []
-    for(let i = 0; i < notes.length; i++) {
-      if(newNotes !== notes[i].id) {
-        newNotes.push(notes[i])
-      }
-    }
-    return newNotes
-  }).then(function(notes) {
-    fs.writeFileSync('./db/db.json', JSON.stringify(notes))
-    res.send('Successfully Saved!');
-  })
-})
+  store
+  .removeNote(req.params.id)
+  .then(() => res.json({ ok: true }))
+ 
+
+  .catch((err) => res.status(500).json(err));
+  });
 
 module.exports = router;
