@@ -1,3 +1,4 @@
+// Dependencies
 const util = require('util');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
@@ -5,17 +6,20 @@ const { v4: uuidv4 } = require('uuid');
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// Store class
 class Store {
 
+  // Reads notes
   read() {
     return readFileAsync('db/db.json', 'utf8');
 
   }
-
+  //  Allows user to write a note
   write(note) {
     return writeFileAsync('db/db.json', JSON.stringify(note));
   }
 
+  // Allows user to get notes
   getNotes() {
     return this.read().then((notes) => {
       let notesArr;
@@ -29,6 +33,7 @@ class Store {
     });
   }
 
+  // Allows user to add a note
   addNote(note) {
     const { title, text } = note;
     if (!title || !text) {
@@ -37,13 +42,14 @@ class Store {
 
     const newNote = { title, text, id: uuidv4() };
 
-    // retrieve all the notes using get method. Then adding new note. Then write all the updated notes (append) and finally return new note
+    // Retrieve all the notes using get method. Then adds new note. Then writes all the updated notes (append) and finally returns new note.
     return this.getNotes()
       .then((notes) => [...notes, newNote])
       .then((updatedNotes) => this.write(updatedNotes))
       .then(() => newNote);
   }
 
+  // Uses id to each note to be able to delete a note
   removeNote(id) {
     return this.getNotes()
       .then((notes) => notes.filter((note) => note.id !== id))
