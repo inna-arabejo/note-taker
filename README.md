@@ -41,7 +41,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ## Screenshots
 ![Note taker landing page screenshot](./public/assets/images/landing-page.jpg)
 ![Note taker main page screenshot](./public/assets/images/notes-main-page.jpg)
-![Note taker walkthrough](./public/assets/images/note-taker.webm)
+[Note taker walkthrough video](./public/assets/images/note-taker-vid.mp4)
 
 ## Tests
 Type `"node server.js"`.
