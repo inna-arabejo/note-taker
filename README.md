@@ -9,17 +9,15 @@
 * [Installation](#installation)
 * [Task](#task)
 * [Screenshots](#screenshots)
-* [Sources](#sources)
+* [Tests](#tests)
 * [License](#license)
 * [Questions](#questions)
 
 ## Installation
 Please install the following dependencies to run the application. 
 * [npm inquirer package](https://www.npmjs.com/package/inquirer)
-* [npm jest package](https://www.npmjs.com/package/jest)
 * [npm express package](https://www.npmjs.com/package/express)
-* [npm util package](https://www.npmjs.com/package/util)
-* [npm fs package](https://www.npmjs.com/package/fs-extra)
+* [npm nodemon package](https://www.npmjs.com/package/nodemon)
 * [npm uuid package](https://www.npmjs.com/package/uuid)
 
 ## Task
@@ -44,6 +42,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ![Note taker screenshot](./)
 
 ## Tests
+type `"node server.js"`
 
 
 ## License
