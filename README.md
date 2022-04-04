@@ -8,6 +8,7 @@
 ## Table of Contents
 * [Installation](#installation)
 * [Task](#task)
+* [Deployed Page](#deployed page)
 * [Screenshots](#screenshots)
 * [Tests](#tests)
 * [License](#license)
@@ -37,6 +38,9 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 ```
+
+## Deployed Page
+[Note Taker Deployed Application](https://note-taker-inna.herokuapp.com/)
 
 ## Screenshots
 ![Note taker landing page screenshot](./public/assets/images/landing-page.jpg)

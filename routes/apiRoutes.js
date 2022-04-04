@@ -2,7 +2,6 @@ const store = require('../db/store');
 const router = require('express').Router();
 
 
-
 // GET Route     // api/notes
 router.get('/notes', (req, res) => {
   store
@@ -11,7 +10,6 @@ router.get('/notes', (req, res) => {
   
   .catch(err => res.status(500).json(err));
   });
-
 
 // POST Route 
 router.post('/notes', (req, res) => {
