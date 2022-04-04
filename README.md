@@ -42,7 +42,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ![Note taker screenshot](./)
 
 ## Tests
-type `"node server.js"`
+Type `"node server.js"`.
 
 
 ## License

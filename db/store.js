@@ -1,17 +1,17 @@
 const util = require('util');
 const fs = require('fs');
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 class Store {
 
-
   read() {
     return readFileAsync('db/db.json', 'utf8');
 
   }
+
   write(note) {
     return writeFileAsync('db/db.json', JSON.stringify(note));
   }
@@ -35,7 +35,7 @@ class Store {
       throw new Error('Please enter a title or text.');
     }
 
-    const newNote = { title, text, id: uuid.v4 }
+    const newNote = { title, text, id: uuidv4() };
 
     // retrieve all the notes using get method. Then adding new note. Then write all the updated notes (append) and finally return new note
     return this.getNotes()
@@ -47,7 +47,7 @@ class Store {
   removeNote(id) {
     return this.getNotes()
       .then((notes) => notes.filter((note) => note.id !== id))
-      .then((filteredNotes) => this.write(filteredNotes))
+      .then(filteredNotes => this.write(filteredNotes));
   }
 
 }
