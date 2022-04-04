@@ -3,7 +3,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-
+ Create an application called Note Taker that saves notes after writing in it. You will be utilizing Express.js which will save and retrieve note data from a JSON file. This application allows us to organize our thoughts and keep track of tasks that needs to be completed. The application will be deployed using Heroku. 
 
 ## Table of Contents
 * [Installation](#installation)
